@@ -1,0 +1,13 @@
+---
+import type { formatList } from "astro/dist/runtime/server/render/util";
+import BaseLayouts from "./BaseLayouts.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayouts pageTitle={frontmatter.title}>
+    <p>{frontmatter.pubDate.slice(0, 10)}</p>
+    <p><em>{frontmatter.description}</em></p>
+    <p>Written by: {frontmatter.author}</p>
+    <slot />
+</BaseLayouts>
